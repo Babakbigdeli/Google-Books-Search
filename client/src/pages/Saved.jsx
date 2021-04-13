@@ -13,6 +13,12 @@ class Saved extends Component {
             .catch(err => console.error(err));
     }
 
+    deleteBook = (id) => {
+        API.deleteBook(id)
+            .then(savedBooks => this.setState({ savedBooks: savedBooks }))
+            .catch((err) => console.log(err))
+      }
+
     render() {
         return (
             <div className="container">
