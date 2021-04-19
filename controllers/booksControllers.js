@@ -4,11 +4,13 @@ const db = require("../models");
 module.exports = {
 //to find books
   findAll: function(req, res) {
+    console.log("findAll")
     db.Book.find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         res.status(422).json(err)
+      
       });
   },
   findById: function(req, res) {
@@ -20,6 +22,7 @@ module.exports = {
   },
   //to add new books to the database
   create: function(req, res) {
+    console.log("Create", req.body)
     db.Book.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => {
