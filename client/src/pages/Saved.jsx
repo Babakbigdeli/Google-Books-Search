@@ -1,32 +1,39 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import Results from "../components/Results";
+import SavedResults from "../components/SavedResults";
 
 class Saved extends Component {
-    state = {
-        savedBooks: [],
-    }
+  state = {
+    savedBooks: [],
+  };
 
-    componentDidMount() {
-        API.getBooks()
-            .then(savedBooks => this.setState({ savedBooks: savedBooks }))
-            .catch(err => console.error(err));
-    }
+  componentDidMount() {
+    this.getSavedBooks();
+  }
 
-    deleteBook = (id) => {
-        API.deleteBook(id)
-            .then(savedBooks => this.setState({ savedBooks: savedBooks }))
-            .catch((err) => console.log(err))
-      }
+  getSavedBooks() {
+    API.getBooks()
+      .then((savedBooks) => this.setState({ savedBooks: savedBooks }))
+      .catch((err) => console.error(err));
+  }
 
-    render() {
-        return (
-            <div className="container">
-                <h2>Saved books</h2>
-                <Results books={this.state.savedBooks} />
-            </div>
-        )
-    }
+  deleteBook = (id) => {
+    API.deleteBook(id)
+      .then(() => this.getSavedBooks())
+      .catch((err) => console.log(err));
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <h2>Saved books</h2>
+        <SavedResults
+          books={this.state.savedBooks}
+          deleteBook={this.deleteBook}
+        />
+      </div>
+    );
+  }
 }
 
 export default Saved;
