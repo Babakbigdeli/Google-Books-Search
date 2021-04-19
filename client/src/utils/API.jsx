@@ -6,18 +6,16 @@ export default {
   },
 
   getBooks: function () {
-    return axios.get("/api/books").then(result => result.data);
+    console.log("getBooks");
+    return axios.get("/api/books").then((result) => result.data);
   },
 
   saveBook: function (data) {
-    return axios.post("/api/books", data).then(result => result.data);
+    console.log(data);
+    return axios.post("/api/books", data).then((result) => result.data);
   },
 
   deleteBook: function (id) {
-    return axios.delete("/api/books/" + id).then(result => result.data);
+    return axios.delete("/api/books/" + id).then((result) => result.data);
   },
-  
 };
-
-
-
