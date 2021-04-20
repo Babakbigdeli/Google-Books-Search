@@ -18,7 +18,10 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes)
 
 // Mongo DB Connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", { useNewUrlParser: true }, { useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true 
+});
 
 app.listen(PORT, () => {
     console.log(`API server now on port:${PORT}`);
