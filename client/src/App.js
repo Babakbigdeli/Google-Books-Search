@@ -6,7 +6,6 @@ import Wrapper from "./components/Wrapper";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 
-import "./App.css";
 
 class App extends Component {
  

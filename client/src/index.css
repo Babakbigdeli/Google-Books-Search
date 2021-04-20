@@ -1,6 +1,5 @@
 body {
-  background: url("../public/LibraryBackGround.jpg") no-repeat center center
-    fixed;
+  background: url("./utils/LibraryBackGround.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
   width: 100%;

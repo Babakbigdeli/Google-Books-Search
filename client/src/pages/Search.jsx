@@ -55,8 +55,8 @@ class Search extends Component {
           handleSearch={this.handleSearch}
         />
         {this.state.books.length ? (
-          <div>
-            <h3 className="container">Your Search Results</h3>
+          <div className="container">
+            <h3>Your Search Results</h3>
             <SearchResults
               books={this.state.books}
               saveBooks={this.saveBooks}
